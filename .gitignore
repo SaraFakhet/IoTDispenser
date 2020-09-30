@@ -1,3 +1,4 @@
 back/node_modules
 back/bin
 back/package-lock.json
+back/.idea
