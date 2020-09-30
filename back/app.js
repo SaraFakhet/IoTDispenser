@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const users = require('./controllers/users')
 
 var app = express();
 
@@ -15,9 +16,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res, next) {
   res.send('bisou')
 });
-app.get('/users', function(req, res, next) {
-  res.send('respond with a resource');
-});
+app.get('/users', users.getUsers);
+app.route('/users').get(users.getUsers);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
