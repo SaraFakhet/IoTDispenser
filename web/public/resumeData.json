@@ -1,0 +1,61 @@
+{
+  "main": {
+    "name":"Distributeur de solution lavante connecté",
+    "description":"Protégez vous, les autres, et votre business",
+    "image":"profilepic.jpg",
+    "bio":"Notre équipe est composée de 5 jeunes entrepreneurs ambitieux, mais également camarades de promotion. L'objectif de notre projet est de proposer à nos clients une solution innovante permettant de réduire les risques de contaminations, réduire les arrêts maladies et ainsi augmenter la productivité du personnel de l'entreprise.",
+    "contactmessage":"Pour toute question, contactez nous!",
+    "email": "lesNimbus2000@gmail.com",
+    "phone": "06 54 32 65 80",
+    "address":{
+      "street":"14-16 Rue Voltaire",
+      "city":"94270, Le Kremlin-Bicêtre",
+      "state":"France"
+    },
+    "social":[
+      {
+        "name":"facebook",
+        "url":"https://github.com/nordicgiant2/react-nice-resume",
+        "className":"fa fa-facebook"
+      },
+      {
+        "name":"twitter",
+        "url":"http://twitter.com",
+        "className":"fa fa-twitter"
+      },
+      {
+        "name":"linkedin",
+        "url":"https://www.linkedin.com/in/tim-baker-8420009a/",
+        "className":"fa fa-linkedin"
+      },
+      {
+        "name":"instagram",
+        "url":"http://instagram.com/tbaker_x",
+        "className":"fa fa-instagram"
+      },
+      {
+        "name":"github",
+        "url":"https://github.com/nordicgiant2/react-nice-resume",
+        "className":"fa fa-github"
+      }
+    ]
+  },
+  "resume":{
+    "probleme":[
+      {
+        "titre":"University?",
+        "description":"Avec le contexte actuel, l’importance de se laver les mains n’est plus à prouver. Cependant, certains usagers ont tendance à trop acheter de solution lavante tandis que d’autres n’ont pas adopté ce réflexe barrière, ce qui augmente les risques de contamination."
+      }
+    ],
+    "solution":[
+      {
+        "titre":"Un objet IOT",
+        "description":"Un distributeur connecté de solution lavante qui permettra de réduire les transmissions de maladies."
+      },
+      {
+        "titre":"Une application mobile",
+        "description":"Une application mobile qui va permettre de recevoir les données envoyées par le distributeur, et proposer à l'utilisateur des statisques sur son utilisation."
+      }
+    ]
+  }
+}
