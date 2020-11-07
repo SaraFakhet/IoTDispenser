@@ -40,7 +40,7 @@ class LaunchingScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
+        <StatusBar barStyle="light-content" />
         {this._maybeRenderLoadingImage()}
       </View>
     );
