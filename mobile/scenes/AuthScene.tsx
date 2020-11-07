@@ -41,14 +41,7 @@ class AuthScene extends Component {
           </View>
         </View>
         <View style={styles.bottom}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              top: "85%",
-              justifyContent: "center",
-            }}
-          >
+          <View style={styles.signinzBtns}>
             <Button style={styles.animatedBtn}>
               <Text style={{ color: "#000000" }}>Sign In</Text>
             </Button>
@@ -141,6 +134,12 @@ const styles = StyleSheet.create({
   btnText: {
     color: "#FFFFFF",
     fontSize: 18,
+  },
+  signinzBtns: {
+    flex: 1,
+    flexDirection: "row",
+    top: "85%",
+    justifyContent: "center",
   },
   animatedBtn: {
     backgroundColor: "transparent",
