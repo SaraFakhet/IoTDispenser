@@ -1,19 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View, Platform, StatusBar } from "react-native";
-import {Router, Scene} from 'react-native-router-flux';
+import { Router, Scene } from "react-native-router-flux";
 
-import LaunchingScreen from './scenes/LaunchingScreen';
-import AuthScene from './scenes/AuthScene';
-
+import LaunchingScreen from "./scenes/LaunchingScreen";
+import AuthScene from "./scenes/AuthScene";
+import ChooseUser from "./scenes/SignUp/ChooseUser";
 
 class App extends React.Component {
-
   render() {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="loading" component={LaunchingScreen} initial={true} hideNavBar={true}></Scene>
-          <Scene key="auth" component={AuthScene} hideNavBar={true}></Scene>
+          <Scene
+            key="loading"
+            component={LaunchingScreen}
+            initial
+            hideNavBar
+          ></Scene>
+          <Scene key="auth" component={AuthScene} hideNavBar></Scene>
+          <Scene key="signup" component={ChooseUser} hideNavBar></Scene>
         </Scene>
       </Router>
     );

@@ -1,14 +1,12 @@
-import React from 'react';
-import { Animated, Platform, StatusBar, StyleSheet, View } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
+import React from "react";
+import { Animated, StatusBar, StyleSheet, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
 
-import {Actions} from 'react-native-router-flux';
-
-console.disableYellowBox = true;
+import { Actions } from "react-native-router-flux";
 
 const switchToAuth = () => {
-    Actions.replace('auth')
-  };
+  Actions.replace("auth");
+};
 
 class LaunchingScreen extends React.Component {
   state = {
@@ -54,30 +52,31 @@ class LaunchingScreen extends React.Component {
     return (
       <Animated.View
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
           bottom: 0,
           right: 0,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#fff',
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#fff",
           opacity: this.state.splashAnimation.interpolate({
             inputRange: [0, 1],
             outputRange: [1, -1],
           }),
-        }}>
+        }}
+      >
         <Animated.Image
-          source={require('../assets/splashScreen.png')}
+          source={require("../assets/splashScreen.png")}
           style={{
             width: undefined,
             height: undefined,
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
             bottom: 0,
             right: 0,
-            resizeMode: 'cover',
+            resizeMode: "cover",
             transform: [
               {
                 scale: this.state.splashAnimation.interpolate({
@@ -105,8 +104,7 @@ class LaunchingScreen extends React.Component {
   };
 
   _loadResourcesAsync = async () => {
-    return Promise.all([
-    ]);
+    return Promise.all([]);
   };
 
   _handleLoadingError = (error: any) => {
@@ -123,7 +121,7 @@ class LaunchingScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
 

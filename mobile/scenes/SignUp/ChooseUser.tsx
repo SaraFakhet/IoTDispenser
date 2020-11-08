@@ -4,7 +4,7 @@ import { Form, Item, Input, Text, Button } from "native-base";
 
 import { Actions } from "react-native-router-flux";
 
-class AuthScene extends Component {
+class ChooseUser extends Component {
 
   render() {
     return (
@@ -16,7 +16,7 @@ class AuthScene extends Component {
           <View style={styles.title}>
             <Text style={styles.textContainer}>Dispenser</Text>
             <Image
-              source={require("../assets/logo_dispenser-white.png")}
+              source={require("../../assets/logo_dispenser-white.png")}
               style={{ width: 50, height: 50 }}
             />
           </View>
@@ -44,12 +44,12 @@ class AuthScene extends Component {
           </View>
 
           <View style={styles.signinzBtns}>
-            <Button style={styles.plusSizeBtn}>
-              <Text style={{ color: "#000000", fontSize: 30}}>Sign In</Text>
+            <Button style={[styles.otherBtn, {marginTop: 10}]} onPress={() => Actions.replace('auth')}>
+              <Text style={{ color: "#000000"}}>Sign In</Text>
             </Button>
             <View style={{ margin: 10 }}></View>
-            <Button style={[styles.otherBtn, {marginTop: 10}]} onPress={() => Actions.replace('signup')}>
-              <Text style={{ color: "#000000" }}>Sign Up</Text>
+            <Button style={styles.plusSizeBtn}>
+              <Text style={{ color: "#000000", fontSize: 29}}>Sign Up</Text>
             </Button>
           </View>
         </View>
@@ -60,7 +60,7 @@ class AuthScene extends Component {
   }
 }
 
-export default AuthScene;
+export default ChooseUser;
 
 const styles = StyleSheet.create({
   container: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   top: {
     position: "relative",
     backgroundColor: "#000000",
-    height: 280,
+    height: 480,
   },
   middle: {
     width: "100%",
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   formArea: {
     alignSelf: "center",
     width: "100%",
-    backgroundColor: "#ffffff",
+    backgroundColor: "transparent",
     borderRadius: 10,
     top: "30%",
     paddingBottom: 15,
@@ -147,11 +147,11 @@ const styles = StyleSheet.create({
   },
   plusSizeBtn:{
     height: 55,
-    width: 115,
+    width: 125,
     backgroundColor: "transparent",
     borderStyle: "solid",
     borderColor: "#000000",
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
 
   otherBtn: {
@@ -159,6 +159,5 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderColor: "#000000",
     borderBottomWidth: 1,
-    alignSelf : 'center'
   }
 });
