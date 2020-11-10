@@ -3,7 +3,10 @@ import { Router, Scene } from "react-native-router-flux";
 
 import LaunchingScreen from "./scenes/LaunchingScreen";
 import AuthScene from "./scenes/AuthScene";
-import ChooseUser from "./scenes/SignUp/ChooseUser";
+import ChooseUser from "./scenes/ChooseUser";
+import SignUpTS from "./scenes/CleanTechUser/SignUpTS";
+import SignUpRL from "./scenes/RespoLogUser/SignUpRL";
+import SignUpUL from "./scenes/LambdaUser/SignUpUL";
 
 class App extends React.Component {
   render() {
@@ -18,6 +21,21 @@ class App extends React.Component {
           ></Scene>
           <Scene key="auth" component={AuthScene} hideNavBar></Scene>
           <Scene key="signup" component={ChooseUser} hideNavBar></Scene>
+          <Scene
+            key="signupRL"
+            component={SignUpRL}
+            title="Inscription Responsable Logistique"
+          ></Scene>
+          <Scene
+            key="signupUL"
+            component={SignUpUL}
+            title="Inscription Utilisateur Lambda"
+          ></Scene>
+          <Scene
+            key="signupTS"
+            component={SignUpTS}
+            title="Inscription Technicien de Surface"
+          ></Scene>
         </Scene>
       </Router>
     );

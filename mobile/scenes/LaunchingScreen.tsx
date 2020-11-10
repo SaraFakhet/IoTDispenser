@@ -16,7 +16,7 @@ class LaunchingScreen extends React.Component {
   };
 
   componentDidMount() {
-    SplashScreen.preventAutoHide();
+    SplashScreen.preventAutoHideAsync();
     this._loadAsync();
     setTimeout(switchToAuth, 1500);
   }
@@ -93,7 +93,7 @@ class LaunchingScreen extends React.Component {
   };
 
   _animateOut = () => {
-    SplashScreen.hide();
+    SplashScreen.hideAsync();
     Animated.timing(this.state.splashAnimation, {
       toValue: 1,
       duration: 2500,
