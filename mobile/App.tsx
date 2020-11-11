@@ -24,17 +24,17 @@ class App extends React.Component {
           <Scene
             key="signupRL"
             component={SignUpRL}
-            title="Inscription Responsable Logistique"
+            title="Inscription"
           ></Scene>
           <Scene
             key="signupUL"
             component={SignUpUL}
-            title="Inscription Utilisateur Lambda"
+            title="Inscription"
           ></Scene>
           <Scene
             key="signupTS"
             component={SignUpTS}
-            title="Inscription Technicien de Surface"
+            title="Inscription"
           ></Scene>
         </Scene>
       </Router>
