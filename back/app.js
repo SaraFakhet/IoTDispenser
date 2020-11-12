@@ -31,6 +31,8 @@ app.get('/users', users.getUsers);
 app.post('/arduino', product.postArduino);
 app.post('/product', product.createProduct);
 app.get('/product/:id', product.getProduct);
+app.post('/create-user', users.createUser);
+app.post('/connect', users.connect);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

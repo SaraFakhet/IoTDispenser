@@ -22,6 +22,9 @@ const Person = sequelize.define('Person', {
     lastName: {
         type: DataTypes.STRING
     },
+    email: {
+        type: DataTypes.STRING
+    },
     age: {
         type: DataTypes.INTEGER
     }
@@ -29,7 +32,7 @@ const Person = sequelize.define('Person', {
 
 const StatCount = sequelize.define('StatCount', {
     countHandwashing: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     resetDelay: {
