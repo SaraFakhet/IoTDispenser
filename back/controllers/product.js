@@ -2,6 +2,8 @@ const models = require('./models')
 
 function postArduino(req, res) {
     // req.body.id_arduino
+    console.log('GG CLEMOU TU AS REUSSI TON POST')
+    res.send(200)
 }
 
 async function createProduct(req, res) {
