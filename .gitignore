@@ -2,3 +2,5 @@ back/node_modules
 back/bin
 back/package-lock.json
 back/.idea
+web/node_modules
+mobile/node_modules

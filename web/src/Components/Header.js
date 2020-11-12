@@ -19,7 +19,7 @@ class Header extends Component {
           <ul id="nav" className="nav">
             <li className="current"><a className="smoothscroll" href="#home">Accueil</a></li>
             <li><a className="smoothscroll" href="#about">A propos</a></li>
-            <li><a className="smoothscroll" href="#solution">Solution</a></li>
+            <li><a className="smoothscroll" href="#resume">Solution</a></li>
             <li><a className="smoothscroll" href="#contact">Contact</a></li>
           </ul>
         </nav>
