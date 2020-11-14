@@ -11,21 +11,21 @@ exports.createUser = async (req, res) => {
         email: req.body.email,
         age: req.body.age,
     })
-
+    console.log(person.id);
     statCountDay = await models.StatCount.create({
         countHandwashing: 0,
-        resetDelay: moment.now(), // CHANGE LIB FIXME et transforme ça en 1 jour
-        lastDelay: moment.now(),
+        resetDelay: 42, // CHANGE LIB FIXME et transforme ça en 1 jour
+        lastDelay: 42,
     })
 
     statCountMonth = await models.StatCount.create({
         countHandwashing: 0,
-        resetDelay: moment.now(), // CHANGE LIB FIXME et transforme ça en 1 mois
-        lastDelay: moment.now(),
+        resetDelay: 42, // CHANGE LIB FIXME et transforme ça en 1 mois
+        lastDelay: 42,
     })
 
     await models.User.create({
-        idPerson: person.id,
+        person: person.id,
         idEntreprise: req.body.idEntreprise,
         countHandwashingDay: 0,
         role: req.body.role,
@@ -48,7 +48,7 @@ exports.connect = async (req, res) => {
                 attributes: {
                     exclude: ['password']
                 },
-                model: models.Person,
+                model: models.People,
                 where: {
                     email
                 }
