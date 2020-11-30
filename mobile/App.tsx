@@ -7,6 +7,7 @@ import ChooseUser from "./scenes/ChooseUser";
 import SignUpTS from "./scenes/CleanTechUser/SignUpTS";
 import SignUpRL from "./scenes/RespoLogUser/SignUpRL";
 import SignUpUL from "./scenes/LambdaUser/SignUpUL";
+import Home from "./scenes/LambdaUser/Home";
 
 class App extends React.Component {
   render() {
@@ -35,6 +36,11 @@ class App extends React.Component {
             key="signupTS"
             component={SignUpTS}
             title="Inscription"
+          ></Scene>
+          <Scene
+            key = "home"
+            component={Home}
+            title="Home"
           ></Scene>
         </Scene>
       </Router>
