@@ -57,7 +57,7 @@ exports.connect = async (req, res) => {
     })
 
     if (user === null) {
-        res.sendStatus(404)
+        res.sendStatus(404).json({"username": "anonym"});
     }
     else {
         res.send(user)
