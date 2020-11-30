@@ -3,6 +3,7 @@ import { View, StyleSheet, Image, StatusBar, Platform } from "react-native";
 import { Form, Item, Input, Text, Button } from "native-base";
 
 import { Actions } from "react-native-router-flux";
+import api from "../api/api";
 
 class AuthScene extends Component {
 
@@ -37,7 +38,7 @@ class AuthScene extends Component {
 
               <View style={styles.Button}>
                 <Button block style={styles.mainBtn}>
-                  <Text style={styles.btnText}>Valider</Text>
+                  <Text style={styles.btnText} onPress={api.getHello} >Valider</Text>
                 </Button>
               </View>
             </Form>

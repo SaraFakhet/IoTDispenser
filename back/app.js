@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.get('/', function(req, res, next) {
-  res.send('bisou')
+  res.status(200).json({'title':'Hello bisou'});
 });
 
 app.get('/users', users.getUsers);
