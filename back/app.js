@@ -10,8 +10,8 @@ const models = require('./controllers/models')
 
 var app = express();
 
-var hostname = 'localhost';
-var port = 3000;
+var hostname = '0.0.0.0';
+var port = process.env.PORT || 3000;
 
 app.listen(port, hostname, async function(){
   console.log("Mon serveur fonctionne sur http://"+ hostname +":"+port+"\n");
