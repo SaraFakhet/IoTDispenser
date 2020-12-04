@@ -56,7 +56,7 @@ exports.connect = async (req, res) => {
         }
     })*/
 
-    const user = {"username":"toto"};
+    const user = {"username":"zizou"};
 
     if (user === null) {
         res.sendStatus(404);
