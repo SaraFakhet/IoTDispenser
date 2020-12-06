@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Text, Button } from "native-base";
+import { Platform } from "react-native";
 
 import { Actions } from "react-native-router-flux";
 
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
     position: "relative",
     paddingRight: 15,
-    fontFamily: "American Typewriter",
+    fontFamily: Platform.OS === "ios" ? "American Typewriter" : "Roboto",
   },
   userArea: {
     height: 300,
