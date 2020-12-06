@@ -8,7 +8,7 @@ import ChooseUser from "./scenes/ChooseUser";
 import SignUpTS from "./scenes/CleanTechUser/SignUpTS";
 import SignUpRL from "./scenes/RespoLogUser/SignUpRL";
 import SignUpUL from "./scenes/LambdaUser/SignUpUL";
-
+import Home from "./scenes/LambdaUser/Home";
 class App extends React.Component {
 
   async UNSAFE_componentWillMount() {
@@ -46,6 +46,7 @@ class App extends React.Component {
             component={SignUpTS}
             title="Inscription"
           ></Scene>
+          <Scene key="homeUL" component={Home} hideNavBar></Scene>
         </Scene>
       </Router>
     );
