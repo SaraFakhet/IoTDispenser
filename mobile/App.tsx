@@ -1,4 +1,5 @@
 import React from "react";
+import * as Font from 'expo-font';
 import { Router, Scene } from "react-native-router-flux";
 
 import LaunchingScreen from "./scenes/LaunchingScreen";
@@ -10,6 +11,15 @@ import SignUpUL from "./scenes/LambdaUser/SignUpUL";
 import LambdaHome from "./scenes/LambdaUser/Home";
 
 class App extends React.Component {
+
+  async UNSAFE_componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      Arial: require("./assets/fonts/Arial.ttf"),
+    });
+  }
+
   render() {
     return (
       <Router>

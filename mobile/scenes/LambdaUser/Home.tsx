@@ -2,7 +2,23 @@ import React, { Component } from "react";
 import { StatusBar, StyleSheet, View } from "react-native";
 import { Text } from "native-base";
 
-class LambdaHome extends Component {
+interface IProps {
+    user: string;
+}
+
+interface IState {
+    user: string;
+}
+
+class LambdaHome extends Component<IProps, IState> {
+
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            user: props.user
+        };
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -17,6 +33,7 @@ class LambdaHome extends Component {
 
                 </View>
                 <Text>User Lambda.</Text>
+                <Text>This is : { this.state.user }</Text>
             </View>
         );
     }

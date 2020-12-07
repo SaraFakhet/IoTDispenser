@@ -1,10 +1,12 @@
 import baseUrl from '../config/baseurl';
+import { Actions } from "react-native-router-flux";
 
 const getHello = async () => {
     try {
       let response = await fetch(`${baseUrl.API_URL}`);
       let json = await response.json();
       console.log(JSON.stringify(json));
+      Actions.replace('homeUL', {user:json.title});
     } catch (error) {
       console.error(error);
     }
