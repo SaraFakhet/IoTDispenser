@@ -33,14 +33,14 @@ class ChooseUser extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <View style={styles.top}></View>
-
-        <View style={styles.title}>
+        <View style={styles.top}>
+          <View style={styles.title}>
           <Text style={styles.textContainer}>Dispenser</Text>
           <Image
             source={require("../assets/logo_dispenser-white.png")}
             style={{ width: 50, height: 50 }}
           />
+        </View>
         </View>
 
         <View style={styles.middle}>
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     marginBottom: 0,
-    top: "15%",
+    top: "20%",
   },
   textContainer: {
     color: "#FCFDFF",
