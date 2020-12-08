@@ -53,7 +53,7 @@ class App extends React.Component {
           </Scene>
           <Scene key="roothome" hideNavBar tabs>
             <Scene
-              key="lambdahome"
+              key="homeUL"
               component={LambdaHome}
               title="Home"
             ></Scene>
