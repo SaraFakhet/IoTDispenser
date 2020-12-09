@@ -12,17 +12,16 @@ import { Platform } from "react-native";
 import { Actions } from "react-native-router-flux";
 
 class ChooseUser extends Component {
-  
   onPressUser = (user: string) => {
     switch (user) {
       case "RL":
-        Actions.push('signupRL');
+        Actions.push("signupRL");
         break;
       case "TS":
-        Actions.push('signupTS');
+        Actions.push("signupTS");
         break;
       case "UL":
-        Actions.push('signupUL');
+        Actions.push("signupUL");
         break;
       default:
         Actions.refresh("signup");
@@ -36,12 +35,12 @@ class ChooseUser extends Component {
         <StatusBar barStyle="light-content" />
         <View style={styles.top}>
           <View style={styles.title}>
-          <Text style={styles.textContainer}>Dispenser</Text>
-          <Image
-            source={require("../assets/logo_dispenser-white.png")}
-            style={{ width: 50, height: 50 }}
-          />
-        </View>
+            <Text style={styles.textContainer}>Dispenser</Text>
+            <Image
+              source={require("../assets/logo_dispenser-white.png")}
+              style={{ width: 50, height: 50 }}
+            />
+          </View>
         </View>
 
         <View style={styles.middle}>

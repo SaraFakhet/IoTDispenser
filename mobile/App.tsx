@@ -9,6 +9,19 @@ import SignUpTS from "./scenes/CleanTechUser/SignUpTS";
 import SignUpRL from "./scenes/RespoLogUser/SignUpRL";
 import SignUpUL from "./scenes/LambdaUser/SignUpUL";
 import LambdaHome from "./scenes/LambdaUser/Home";
+import { View, Text } from "react-native";
+
+/*
+class Tabicon extends React.Component {
+  render() {
+    return (
+      <View>
+        <Text>{this.props.title}</Text>
+      </View>
+    )
+  }
+}
+*/
 
 class App extends React.Component {
 
@@ -55,6 +68,7 @@ class App extends React.Component {
             <Scene
               key="homeUL"
               component={LambdaHome}
+              hideNavBar
               title="Home"
             ></Scene>
           </Scene>
