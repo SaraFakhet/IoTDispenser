@@ -41,7 +41,7 @@ exports.connect = async (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
 
-    const user = await models.User.findOne({
+    /*const user = await models.User.findOne({
         where: {
             password,
             include: [{
@@ -54,10 +54,12 @@ exports.connect = async (req, res) => {
                 }
             }]
         }
-    })
+    })*/
+
+    const user = {"username":"zizou"};
 
     if (user === null) {
-        res.sendStatus(404)
+        res.sendStatus(404);
     }
     else {
         res.send(user)
