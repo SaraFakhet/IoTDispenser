@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname') // Example for postgre
+const sequelize = new Sequelize(process.env.DATABASE_URL) // Example for postgre
 
 async function connect() {
     try {
