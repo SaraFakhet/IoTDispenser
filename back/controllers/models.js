@@ -168,12 +168,6 @@ const User = sequelize.define('users', {
     timestamps: false
 });
 
-People.sync();
-StatCount.sync();
-Entreprise.sync();
-Product.sync();
-User.sync();
-
 exports.People = People;
 exports.StatCount = StatCount;
 exports.Entreprise = Entreprise;
