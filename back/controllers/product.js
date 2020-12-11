@@ -2,7 +2,7 @@ const models = require('./models')
 
 exports.postArduino = async (req, res) => {
     console.log('GG CLEMOU TU AS REUSSI TON POST')
-    /*const idArduino = req.query.idArduino
+    const idArduino = req.query.idArduino
     await models.Product.findOne({ idArduino }).on('success', (product) => {
             if (product) {
                 product.update({
@@ -10,7 +10,7 @@ exports.postArduino = async (req, res) => {
                 })
             }
         }
-    )*/
+    )
     res.sendStatus(200)
 }
 
