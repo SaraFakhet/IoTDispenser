@@ -116,7 +116,7 @@ class LambdaHome extends Component<IProps, IState> {
             <Text style={[styles.textStat, {bottom: '5%'}]}>
               Fréquence hebdomadaire de lavage de mains
             </Text>
-            <View style={{bottom: 30}}>
+            <View style={{bottom: 40}}>
               <VictoryChart
                 height={240}
                 width={350}
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   textContainer: {
     color: "#FCFDFF",
     top: "2%",
-    fontSize: 20,
+    fontSize: 25,
     textAlign: "center",
     marginRight: 5,
     paddingRight: 5,
