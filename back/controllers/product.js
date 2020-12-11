@@ -1,14 +1,16 @@
 const models = require('./models')
 
-exports.postArduino = (req, res) => {
-    console.log('GG CLEMOU TU AS REUSSI TON POST')
+exports.postArduino = async (req, res) => {
+    const idArduino = req.body.id
+    await models.Product.increment('utilisation', { where: { idArduino }})
+
     res.sendStatus(200)
 }
 
 exports.createProduct = async (req, res) => {
     await models.Product.create({
+        idArduino: req.body.idArduino,
         idEntreprise: req.body.idEntreprise,
-        //lastFill: ,
     })
     res.send(200)
 }

@@ -1,18 +1,25 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname') // Example for postgre
+
+const sequelize = new Sequelize(process.env.DATABASE_URL) // Example for postgre
 
 async function connect() {
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
+        await People.sync();
+        await StatCount.sync();
+        await Entreprise.sync();
+        await Product.sync();
+        await User.sync();
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
 }
 
-const Person = sequelize.define('Person', {
+const People = sequelize.define('people', {
     firstName: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        field: "firstname"
         //    defaultValue: "John Doe"
         // allowNull: bool
         // unique: true/false
@@ -20,7 +27,8 @@ const Person = sequelize.define('Person', {
         // field: string (custom name)
     },
     lastName: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        field: "lastname"
     },
     email: {
         type: DataTypes.STRING
@@ -28,22 +36,29 @@ const Person = sequelize.define('Person', {
     age: {
         type: DataTypes.INTEGER
     }
+}, {
+    timestamps: false
 });
 
-const StatCount = sequelize.define('StatCount', {
+const StatCount = sequelize.define('stat_count', {
     countHandwashing: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: "count_handwashing"
     },
     resetDelay: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        field: "reset_delay"
     },
     lastDelay: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        field: "last_delay"
     }
+}, {
+    timestamps: false
 });
 
-const Entreprise = sequelize.define('Entreprise', {
+const Entreprise = sequelize.define('entreprise', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -52,16 +67,24 @@ const Entreprise = sequelize.define('Entreprise', {
         type: DataTypes.STRING,
         allowNull: false,
     }
+}, {
+    timestamps: false
 });
 
-const Product = sequelize.define('Product', {
+const Product = sequelize.define('product', {
+    idArduino: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: "id_arduino"
+    },
     idEntreprise: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
             model: Entreprise,
             key: 'id'
-        }
+        },
+        field: "id_entreprise"
     },
     utilisation: {
         type: DataTypes.INTEGER,
@@ -70,25 +93,29 @@ const Product = sequelize.define('Product', {
     },
     lastFill: {
         type: DataTypes.DATE,
+        field: "last_fill"
     },
     isEmpty: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+        field: "is_empty"
     },
     capacity: {
         type: DataTypes.FLOAT,
         allowNull: false,
         defaultValue: 0.25,
     },
+}, {
+    timestamps: false
 });
 
-const User = sequelize.define('User', {
+const User = sequelize.define('users', {
     person: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: Person,
+            model: People,
             key: 'id'
         }
     },
@@ -98,10 +125,12 @@ const User = sequelize.define('User', {
         references: {
             model: Entreprise,
             key: 'id'
-        }
+        },
+        field: "id_entreprise"
     },
     countHandwashingDay: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        field: "count_handwashing_day"
     },
     countDay: {
         type: DataTypes.INTEGER,
@@ -109,7 +138,8 @@ const User = sequelize.define('User', {
         references: {
             model: StatCount,
             key: 'id'
-        }
+        },
+        field: "count_day"
     },
     countMonth: {
         type: DataTypes.INTEGER,
@@ -117,13 +147,16 @@ const User = sequelize.define('User', {
         references: {
             model: StatCount,
             key: 'id'
-        }
+        },
+        field: "count_month"
     },
     lastHandwashing: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        field: "last_handwashing"
     },
     delayHandwashing: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        field: "delay_handwashing"
     },
     role: {
         type: DataTypes.ENUM('admin', 'employee', 'responsable', 'surface_technician')
@@ -131,9 +164,11 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING
     },
+}, {
+    timestamps: false
 });
 
-exports.Person = Person;
+exports.People = People;
 exports.StatCount = StatCount;
 exports.Entreprise = Entreprise;
 exports.Product = Product;
