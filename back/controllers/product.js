@@ -2,6 +2,7 @@ const models = require('./models')
 
 exports.postArduino = (req, res) => {
     console.log('GG CLEMOU TU AS REUSSI TON POST')
+    console.log(req.body)
     res.sendStatus(200)
 }
 

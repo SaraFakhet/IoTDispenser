@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('postgres://cristal:a@127.0.0.1:5432/iot', {logging: true}) // Example for postgre
+
+const sequelize = new Sequelize(process.env.DATABASE_URL) // Example for postgre
 
 async function connect() {
     try {
