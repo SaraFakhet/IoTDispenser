@@ -3,10 +3,9 @@ const models = require('./models')
 exports.postArduino = async (req, res) => {
     console.log('GG CLEMOU TU AS REUSSI TON POST')
     const idArduino = req.query.idArduino
-    await models.Product.update(
-        { utilisation: utilisation+1 },
-        { where: { idArduino } }
-      )
+    await models.Product.increment(
+        { utilisation}
+    )
     res.sendStatus(200)
 }
 
