@@ -72,6 +72,11 @@ const Entreprise = sequelize.define('entreprise', {
 });
 
 const Product = sequelize.define('product', {
+    idArduino: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: "id_arduino"
+    },
     idEntreprise: {
         type: DataTypes.INTEGER,
         allowNull: false,
