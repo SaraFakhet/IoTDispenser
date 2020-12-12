@@ -96,6 +96,7 @@ class App extends React.Component {
           <Scene key="roothome" hideNavBar tabs showLabel={false}>
             <Scene
               key="homeUL"
+              wrap={false}
               component={LambdaHome}
               hideNavBar
               icon={TabIcon}

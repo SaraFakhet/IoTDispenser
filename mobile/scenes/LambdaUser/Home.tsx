@@ -106,7 +106,7 @@ class LambdaHome extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                X
+                {this.state.user}
               </Text>{" "}
               fois
             </Text>
@@ -172,12 +172,14 @@ class LambdaHome extends Component<IProps, IState> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexWrap: 'wrap',
     position: "relative",
   },
   top: {
     position: "relative",
     backgroundColor: "#000000",
     height: 150,
+    width: "100%"
   },
   topTitle: {
     position: "relative",
@@ -188,6 +190,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   textContainer: {
+    display: "flex",
     color: "#FCFDFF",
     top: "2%",
     fontSize: 25,
