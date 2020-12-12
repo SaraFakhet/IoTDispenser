@@ -4,15 +4,12 @@ import {
   StyleSheet,
   View,
   Image,
-  Platform,
   ScrollView,
   Alert,
 } from "react-native";
 import { Button } from "react-native-elements";
 import { Text } from "native-base";
 import {
-  Background,
-  VictoryAxis,
   VictoryBar,
   VictoryChart,
   VictoryTheme,
@@ -55,6 +52,8 @@ class LambdaHome extends Component<IProps, IState> {
         </View>
         <ScrollView style={styles.scrollView}>
           <View style={styles.box}>
+          <Text style={[styles.text, {fontWeight: 'bold'}]}>Hello {this.state.user}! 🙋</Text>
+          <View style={{ height: 15 }}/>
             <Text style={styles.text}>
               Pour alimenter nos data set et ainsi offrir une{" "}
               <Text
@@ -70,7 +69,7 @@ class LambdaHome extends Component<IProps, IState> {
               </Text>{" "}
               de vos données, votre participation est requise 🙏
             </Text>
-            <View style={{ height: 15 }}></View>
+            <View style={{ height: 15 }}/>
             <Text style={styles.text}>
               Lorsque vous vous lavez les mains avec{" "}
               <Text
@@ -106,7 +105,7 @@ class LambdaHome extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                {this.state.user}
+                X
               </Text>{" "}
               fois
             </Text>
@@ -161,10 +160,7 @@ class LambdaHome extends Component<IProps, IState> {
           </View>
           <Space/>
         </ScrollView>
-        <View style={styles.bottom}>
-          {/*<Text>User Lambda.</Text>
-          <Text>This is : {this.state.user}</Text>*/}
-        </View>
+        <View style={styles.bottom} />
       </View>
     );
   }
