@@ -63,6 +63,8 @@ class App extends React.Component {
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
       Arial: require("./assets/fonts/Arial.ttf"),
+      "Helvetica Neue": require("./assets/fonts/HelveticaNeue.ttf"),
+      "American Typewriter": require("./assets/fonts/AmericanTypewriter.ttf"),
     });
   }
 
@@ -96,6 +98,7 @@ class App extends React.Component {
           <Scene key="roothome" hideNavBar tabs showLabel={false}>
             <Scene
               key="homeUL"
+              wrap={false}
               component={LambdaHome}
               hideNavBar
               icon={TabIcon}

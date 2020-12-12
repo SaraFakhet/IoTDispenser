@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
     position: "relative",
     paddingRight: 15,
-    fontFamily: Platform.OS === "ios" ? "American Typewriter" : "Roboto",
+    fontFamily: "American Typewriter",
   },
   formArea: {
     alignSelf: "center",
