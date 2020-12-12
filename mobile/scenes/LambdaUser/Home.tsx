@@ -159,6 +159,7 @@ class LambdaHome extends Component<IProps, IState> {
               %
             </Text>
           </View>
+          <Space/>
         </ScrollView>
         <View style={styles.bottom}>
           {/*<Text>User Lambda.</Text>
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "American Typewriter" : "Roboto",
   },
   scrollView: {
-    width: "82%",
+    width: "85%",
     height: "82%",
     top: "18%",
     position: "absolute",
@@ -207,12 +208,18 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   box: {
+    width: "96%",
+    alignSelf: 'center',
     backgroundColor: "#F5FCF6",
     flexDirection: "column",
     paddingHorizontal: 17,
     paddingTop: 30,
     borderRadius: 20,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.23,
+    shadowRadius: 2,
+    shadowOffset: { height: 2, width: 0 },
   },
   text: {
     textAlign: "center",
