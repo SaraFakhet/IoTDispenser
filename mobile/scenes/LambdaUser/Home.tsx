@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginRight: 5,
     paddingRight: 5,
-    fontFamily: Platform.OS === "ios" ? "American Typewriter" : "Roboto",
+    fontFamily: "American Typewriter",
   },
   scrollView: {
     width: "82%",
