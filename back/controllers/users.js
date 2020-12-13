@@ -72,3 +72,17 @@ exports.connect = async (req, res) => {
         res.send(user)
     }
 }
+
+exports.handWashing = async (req, res) => {
+    const user = models.Users.findOne({where: {id: req.body.id}})
+    await models.StatCount.increment('countHandwashing', { where: { id: user.countDay }})
+    await models.StatCount.increment('countHandwashing', { where: { id: user.countMonth }})
+    res.sendStatus(200)
+}
+
+exports.getStat = async (req, res) => {
+    const user = models.Users.findOne({where: {id: req.body.id}})
+    const statCountDay = models.StatCount({ where: { id: user.countDay}})
+    const statCountMonth = models.StatCount({ where: { id: user.countMonth}})
+    res.send({ countHandwashingDay: statCountDay.countHandwashing, countHandwashingMonth: statCountMonth.countHandwashing})
+}
