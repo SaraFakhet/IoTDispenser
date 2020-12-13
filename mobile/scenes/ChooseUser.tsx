@@ -102,8 +102,6 @@ class ChooseUser extends Component {
   }
 }
 
-export default ChooseUser;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -207,3 +205,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
 });
+
+export default ChooseUser;

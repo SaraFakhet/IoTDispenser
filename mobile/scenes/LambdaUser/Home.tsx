@@ -4,15 +4,12 @@ import {
   StyleSheet,
   View,
   Image,
-  Platform,
   ScrollView,
   Alert,
 } from "react-native";
 import { Button } from "react-native-elements";
 import { Text } from "native-base";
 import {
-  Background,
-  VictoryAxis,
   VictoryBar,
   VictoryChart,
   VictoryTheme,
@@ -55,6 +52,8 @@ class LambdaHome extends Component<IProps, IState> {
         </View>
         <ScrollView style={styles.scrollView}>
           <View style={styles.box}>
+          <Text style={[styles.text, {fontWeight: 'bold'}]}>Hello {this.state.user}! 🙋</Text>
+          <View style={{ height: 15 }}/>
             <Text style={styles.text}>
               Pour alimenter nos data set et ainsi offrir une{" "}
               <Text
@@ -70,7 +69,7 @@ class LambdaHome extends Component<IProps, IState> {
               </Text>{" "}
               de vos données, votre participation est requise 🙏
             </Text>
-            <View style={{ height: 15 }}></View>
+            <View style={{ height: 15 }}/>
             <Text style={styles.text}>
               Lorsque vous vous lavez les mains avec{" "}
               <Text
@@ -106,7 +105,7 @@ class LambdaHome extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                {this.state.user}
+                X
               </Text>{" "}
               fois
             </Text>
@@ -159,11 +158,9 @@ class LambdaHome extends Component<IProps, IState> {
               %
             </Text>
           </View>
+          <Space/>
         </ScrollView>
-        <View style={styles.bottom}>
-          {/*<Text>User Lambda.</Text>
-          <Text>This is : {this.state.user}</Text>*/}
-        </View>
+        <View style={styles.bottom} />
       </View>
     );
   }
@@ -200,7 +197,7 @@ const styles = StyleSheet.create({
     fontFamily: "American Typewriter",
   },
   scrollView: {
-    width: "82%",
+    width: "85%",
     height: "82%",
     top: "18%",
     position: "absolute",
@@ -210,12 +207,18 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   box: {
+    width: "96%",
+    alignSelf: 'center',
     backgroundColor: "#F5FCF6",
     flexDirection: "column",
     paddingHorizontal: 17,
     paddingTop: 30,
     borderRadius: 20,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.23,
+    shadowRadius: 2,
+    shadowOffset: { height: 2, width: 0 },
   },
   text: {
     textAlign: "center",
