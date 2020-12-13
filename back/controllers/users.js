@@ -44,14 +44,14 @@ exports.connect = async (req, res) => {
     const user = await models.Users.findOne({
         where: {
             password,
-            include: [{
+            /*include: [{
                 model: models.People,
                 where: {
                     email
                 }
-            }, {
+            },{
                 model: models.StatCount
-            }]
+            }]*/
         }
     })
 
