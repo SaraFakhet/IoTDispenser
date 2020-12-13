@@ -37,6 +37,7 @@ const postUserAuth = async (email: string, password: string) => {
 const postCreateUser = async (
     firstName: string,
     lastName: string,
+    age: number,
     email: string,
     password: string,
     idEntreprise: number,
@@ -52,6 +53,7 @@ const postCreateUser = async (
             body: JSON.stringify({
                 firstName: firstName,
                 lastName: lastName,
+                age: age,
                 email: email,
                 password: password,
                 idEntreprise: idEntreprise,

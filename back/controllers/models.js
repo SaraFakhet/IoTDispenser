@@ -6,11 +6,11 @@ async function connect() {
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
-        await People.sync();
-        await StatCount.sync();
-        await Entreprise.sync();
-        await Product.sync();
-        await Users.sync();
+        await People.sync({alter: true});
+        await StatCount.sync({alter: true});
+        await Entreprise.sync({alter: true});
+        await Product.sync({alter: true});
+        await Users.sync({alter: true});
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
@@ -79,7 +79,7 @@ const Product = sequelize.define('product', {
     },
     idEntreprise: {
         type: DataTypes.INTEGER,
-        allowNull: true, //FIXME false
+        allowNull: false,
         references: {
             model: Entreprise,
             key: 'id'
@@ -111,7 +111,7 @@ const Product = sequelize.define('product', {
 });
 
 const Users = sequelize.define('users', {
-    person: {
+    people: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {

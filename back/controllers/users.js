@@ -26,7 +26,7 @@ exports.createUser = async (req, res) => {
 
     await models.Users.create({
         people: people.id,
-        //idEntreprise: req.body.idEntreprise,
+        idEntreprise: req.body.idEntreprise,
         countHandwashingDay: 0,
         role: req.body.role,
         password: req.body.password,

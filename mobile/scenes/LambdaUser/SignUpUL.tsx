@@ -81,7 +81,7 @@ class SignUpUL extends Component {
                 dropDownStyle={{ marginTop: 2 }}
               />
               <View style={{ marginTop: 50, marginBottom: 50, zIndex: 1 }}>
-                <Button onPress={() => api.postCreateUser('prenom', 'nom', 'mail@mail.com', 'password', 1, 'admin')} style={styles.btn}>
+                <Button onPress={() => api.postCreateUser('prenom', 'nom', 22, 'mail@mail.com', 'password', 1, 'admin')} style={styles.btn}>
                   <Text style={{ color: "white" }}>Terminer</Text>
                 </Button>
               </View>
