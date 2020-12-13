@@ -24,10 +24,108 @@ const items = [
     { label: "De", value: "france" },
     { label: "Ma", value: "usa" },
     { label: "Vue", value: "uk" },
-  ]
+]
 
-class SignUpUL extends Component {
-    
+interface IProps {
+  firstName: string,
+  lastName: string,
+  age: number,
+  email: string,
+  password: string,
+  idEntreprise: number,
+  role: string
+}
+
+interface IState {
+  firstName: string,
+  lastName: string,
+  age: number,
+  email: string,
+  password: string,
+  confirmPassword: string,
+  idEntreprise: number,
+  role: string,
+}
+  
+enum stateField {FIRSTNAME, LASTNAME, AGE, EMAIL, PASSWORD, CONFIRMPASSWORD, IDENTREPRISE}
+
+class SignUpUL extends Component<IProps, IState> {
+
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: 'Doe',
+      age: 20,
+      email: '',
+      password: '',
+      confirmPassword: '',
+      idEntreprise: 1,
+      role: 'employee',
+    };
+  }
+
+  handleOnChange(event: any, field: stateField) : void {
+    switch(field) {
+      case stateField.FIRSTNAME:
+        this.setState({firstName: event});
+        break;
+      case stateField.LASTNAME:
+        this.setState({lastName: event});
+        break;
+      case stateField.AGE:
+        this.setState({age: event});
+        break;
+      case stateField.EMAIL:
+        this.setState({email: event});
+        break;
+      case stateField.PASSWORD:
+        this.setState({password: event});
+        break;
+      case stateField.CONFIRMPASSWORD:
+        this.setState({confirmPassword: event});
+        break;
+      case stateField.IDENTREPRISE:
+        this.setState({idEntreprise: event});
+        break;
+      default:
+        this.setState({firstName: event});
+        break;
+    }
+    if (this.state.firstName === 'Joh') {
+      this.prefill();
+    }
+  }
+
+  prefill() {
+    this.setState({
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 20,
+      email: 'John.Doe@gmail.com',
+      password: 'azerty',
+      confirmPassword: 'azerty',
+      idEntreprise: 1,
+      role: 'employee',
+    });
+  }
+
+  sendForm() {
+    /*if (this.state.password !== this.state.confirmPassword) {
+      console.log("password confirmation failed");
+    }
+    else {*/
+      api.postCreateUser(
+        this.state.firstName,
+        this.state.lastName,
+        this.state.age,
+        this.state.email,
+        this.state.password,
+        this.state.idEntreprise,
+        this.state.role)
+    //}
+  }
+
   render() {
     return (
       <KeyboardAvoidingView
@@ -48,22 +146,40 @@ class SignUpUL extends Component {
           <View style={styles.inputBox}>
             <View>
               <Text style={{ fontSize: 11 }}>Nom et prénom</Text>
-              <TextInput style={styles.input} />
+              <TextInput
+                style={styles.input}
+                value={this.state.firstName}
+                onChangeText={e => this.handleOnChange(e, stateField.FIRSTNAME)}
+              />
             </View>
             <SpaceBetween />
             <View>
               <Text style={{ fontSize: 11 }}>Email</Text>
-              <TextInput style={styles.input} />
+              <TextInput
+                style={styles.input}
+                value={this.state.email}
+                onChangeText={e => this.handleOnChange(e, stateField.EMAIL)}
+              />
             </View>
             <SpaceBetween />
             <View>
               <Text style={{ fontSize: 11 }}>Mot de Passe</Text>
-              <TextInput style={styles.input} secureTextEntry />
+              <TextInput
+                style={styles.input}
+                secureTextEntry
+                value={this.state.password}
+                onChangeText={e => this.handleOnChange(e, stateField.PASSWORD)}
+              />
             </View>
             <SpaceBetween />
             <View>
               <Text style={{ fontSize: 11 }}>Confirmer le mot de passe</Text>
-              <TextInput style={styles.input} secureTextEntry />
+              <TextInput
+                style={styles.input}
+                secureTextEntry
+                value={this.state.password}
+                onChangeText={e => this.handleOnChange(e, stateField.CONFIRMPASSWORD)}
+              />
             </View>
             <SpaceBetween />
             <View style={{ zIndex: 2 }}>
@@ -81,7 +197,9 @@ class SignUpUL extends Component {
                 dropDownStyle={{ marginTop: 2 }}
               />
               <View style={{ marginTop: 50, marginBottom: 50, zIndex: 1 }}>
-                <Button onPress={() => api.postCreateUser('prenom', 'nom', 22, 'mail@mail.com', 'password', 1, 'admin')} style={styles.btn}>
+                <Button onPress={() => this.sendForm()}
+                  style={styles.btn}
+                >
                   <Text style={{ color: "white" }}>Terminer</Text>
                 </Button>
               </View>

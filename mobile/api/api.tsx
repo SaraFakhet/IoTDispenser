@@ -43,7 +43,8 @@ const postCreateUser = async (
     idEntreprise: number,
     role: string) => {
     try {
-        console.log("send email : " + email + ", password : " + password);
+        console.log("send firstname : " + firstName + ", lastName : " + lastName + ", age : " + age
+        + ", email : " + email + ", password : " + password + ", idEntreprise : " + idEntreprise + ", role : " + role);
         let response = await fetch(`${baseUrl.API_URL}/create-user`, {
             method: 'POST',
             headers: {
