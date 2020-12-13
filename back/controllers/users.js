@@ -1,5 +1,5 @@
 const models = require('./models')
-import {Op} from 'sequelize';
+const Op = require('sequelize');
 
 exports.getUsers = (req, res) => {
     res.send("It's me")
