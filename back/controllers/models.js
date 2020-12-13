@@ -79,7 +79,7 @@ const Product = sequelize.define('product', {
     },
     idEntreprise: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true, //FIXME false
         references: {
             model: Entreprise,
             key: 'id'

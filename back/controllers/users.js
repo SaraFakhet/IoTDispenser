@@ -26,7 +26,7 @@ exports.createUser = async (req, res) => {
 
     await models.User.create({
         person: person.id,
-        idEntreprise: req.body.idEntreprise,
+        //idEntreprise: req.body.idEntreprise,
         countHandwashingDay: 0,
         role: req.body.role,
         password: req.body.password,
@@ -41,22 +41,21 @@ exports.connect = async (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
 
-    /*const user = await models.User.findOne({
+    const user = await models.User.findOne({
         where: {
             password,
             include: [{
-                attributes: {
-                    exclude: ['password']
-                },
                 model: models.People,
                 where: {
                     email
                 }
+            }, {
+                model: models.StatCount
             }]
         }
-    })*/
+    })
 
-    const user = {"username":"zizou"};
+    //const user = {"username":"zizou"};
 
     if (user === null) {
         res.sendStatus(404);

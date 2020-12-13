@@ -34,7 +34,42 @@ const postUserAuth = async (email: string, password: string) => {
     }
 }
 
+const postCreateUser = async (
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+    idEntreprise: number,
+    role: string) => {
+    try {
+        console.log("send email : " + email + ", password : " + password);
+        let response = await fetch(`${baseUrl.API_URL}/create-user`, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                idEntreprise: idEntreprise,
+                role: role}),
+        });
+        if (response.ok) {
+            let json = await response.json();
+            console.log(JSON.stringify(json));
+            Actions.replace('homeUL', {firstName:json.firstName});
+            return json;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export default {
     getHello,
-    postUserAuth
+    postUserAuth,
+    postCreateUser
 };

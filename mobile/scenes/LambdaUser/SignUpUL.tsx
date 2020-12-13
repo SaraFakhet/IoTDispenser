@@ -12,6 +12,7 @@ import {
 import { Button } from "native-base";
 import DropDownPicker from "react-native-dropdown-picker";
 import { Actions } from "react-native-router-flux";
+import api from "../../api/api";
 
 const SpaceBetween = () => {
   return <View style={{ margin: 5 }}></View>;
@@ -80,7 +81,7 @@ class SignUpUL extends Component {
                 dropDownStyle={{ marginTop: 2 }}
               />
               <View style={{ marginTop: 50, marginBottom: 50, zIndex: 1 }}>
-                <Button onPress={() => {Actions.jump('homeUL');}} style={styles.btn}>
+                <Button onPress={() => api.postCreateUser('prenom', 'nom', 'mail@mail.com', 'password', 1, 'admin')} style={styles.btn}>
                   <Text style={{ color: "white" }}>Terminer</Text>
                 </Button>
               </View>
