@@ -54,9 +54,10 @@ exports.connect = async (req, res) => {
         }
     })*/
     const people = await models.People.findAll({ where: {email}, attributes: ['id']});
-    console.log("people : " + people);
-    const user= await models.Users.findOne({where: {password, people: people}});
-
+    const peoples = people.map((p) => p.id);
+    console.log("peoples : " + peoples);
+    const user= await models.Users.findOne({where: {password, people: peoples}});
+    
     //const user = {"username":"zizou"};
 
     
