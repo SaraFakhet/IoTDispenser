@@ -10,7 +10,7 @@ async function connect() {
         await StatCount.sync();
         await Entreprise.sync();
         await Product.sync();
-        await User.sync();
+        await Users.sync();
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
