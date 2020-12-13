@@ -5,13 +5,13 @@ exports.getUsers = (req, res) => {
 }
 
 exports.createUser = async (req, res) => {
-    const person = await models.Person.create({
+    const people = await models.People.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         age: req.body.age,
     })
-    console.log(person.id);
+    console.log(people.id);
     statCountDay = await models.StatCount.create({
         countHandwashing: 0,
         resetDelay: 42, // CHANGE LIB FIXME et transforme ça en 1 jour
@@ -25,7 +25,7 @@ exports.createUser = async (req, res) => {
     })
 
     await models.Users.create({
-        person: person.id,
+        people: people.id,
         //idEntreprise: req.body.idEntreprise,
         countHandwashingDay: 0,
         role: req.body.role,
