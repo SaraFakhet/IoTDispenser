@@ -1,4 +1,5 @@
 const models = require('./models')
+import {Op} from 'sequelize';
 
 exports.getUsers = (req, res) => {
     res.send("It's me")
@@ -45,7 +46,10 @@ exports.connect = async (req, res) => {
         where: {
             password,
             include: [{
-                model: models.People
+                model: models.People,
+                on: {
+                '$users.people$': { [Op.col]: 'people.id' }
+                },
             }]
         }
     })
