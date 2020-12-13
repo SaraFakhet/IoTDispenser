@@ -59,12 +59,12 @@ const postCreateUser = async (
                 idEntreprise: idEntreprise,
                 role: role}),
         });
-        if (response.ok) {
+        /*if (response.ok) {
             let json = await response.json();
             console.log(JSON.stringify(json));
             Actions.replace('homeUL', {firstName:json.firstName});
             return json;
-        }
+        }*/
     } catch (error) {
         console.error(error);
     }
