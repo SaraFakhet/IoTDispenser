@@ -14,7 +14,8 @@ const getHello = async () => {
 
 const postUserAuth = async (email: string, password: string) => {
     try {
-        const result = await fetch(`${baseUrl.API_URL}/connect`, {
+        console.log("send email : " + email + ", password : " + password);
+        let response = await fetch(`${baseUrl.API_URL}/connect`, {
             method: 'POST',
             headers: {
               Accept: 'application/json',
@@ -22,8 +23,11 @@ const postUserAuth = async (email: string, password: string) => {
             },
             body: JSON.stringify({email: email, password: password}),
         });
-        if (result.ok) {
-            return await result.json();
+        if (response.ok) {
+            let json = await response.json();
+            console.log(JSON.stringify(json));
+            Actions.replace('homeUL', {user:json.username});
+            return json;
         }
     } catch (error) {
         console.error(error);

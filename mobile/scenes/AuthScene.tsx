@@ -5,7 +5,33 @@ import { Form, Item, Input, Text, Button } from "native-base";
 import { Actions } from "react-native-router-flux";
 import api from "../api/api";
 
-class AuthScene extends Component {
+interface IProps {
+  email: string;
+  password: string;
+}
+
+interface IState {
+  email: string;
+  password: string;
+}
+
+class AuthScene extends Component<IProps, IState> {
+
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+
+  handleOnChangeEmail(event: any) : void {
+    this.setState({ email: event });
+  }
+
+  handleOnChangePass(event: any) : void {
+    this.setState({ password: event });
+  }
 
   render() {
     return (
@@ -26,19 +52,20 @@ class AuthScene extends Component {
             <Text style={[styles.signin]}>Connexion</Text>
             <Form>
               <Item style={styles.formItems}>
-                <Input placeholder="Email" style={styles.Input} />
+                <Input placeholder="Email" onChangeText={e => this.handleOnChangeEmail(e)} style={styles.Input} />
               </Item>
               <Item style={styles.formItems}>
                 <Input
                   secureTextEntry={true}
                   placeholder="Mot de Passe"
+                  onChangeText={e => this.handleOnChangePass(e)}
                   style={styles.Input}
                 />
               </Item>
 
               <View style={styles.Button}>
                 <Button block style={styles.mainBtn}>
-                  <Text style={styles.btnText} onPress={api.getHello} >Valider</Text>
+                  <Text style={styles.btnText} onPress={() => api.postUserAuth(this.state.email, this.state.password)} >Valider</Text>
                 </Button>
               </View>
             </Form>
