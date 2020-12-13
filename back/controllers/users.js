@@ -53,12 +53,15 @@ exports.connect = async (req, res) => {
             }]
         }
     })*/
-    const people = await models.People.findOne({ where: {email}})
-    const user = await models.Users.findOne({where: {password, people: people.id}})
+    const people = await models.People.findOne({ where: {email}});
+    const user = await models.Users.findOne({where: {password, people: people.id}});
 
     //const user = {"username":"zizou"};
 
+    console.log("user : " + user);
+
     if (user === null) {
+        console.log("too bad");
         res.sendStatus(404);
     }
     else {
