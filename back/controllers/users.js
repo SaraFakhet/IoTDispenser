@@ -58,7 +58,9 @@ exports.connect = async (req, res) => {
 
     //const user = {"username":"zizou"};
 
+    console.log("people : " + people);
     console.log("user : " + user);
+    console.log("email : " + email);
 
     if (user === null) {
         console.log("too bad");
