@@ -7,6 +7,7 @@ var logger = require('morgan');
 const users = require('./controllers/users')
 const product = require('./controllers/product')
 const people = require('./controllers/people')
+const entreprise = require('./controllers/entreprise')
 const models = require('./controllers/models')
 
 var app = express();
@@ -39,6 +40,12 @@ app.get('/people', people.getPeople);
 app.post('/hand-washing', users.handWashing);
 app.get('/statistics-user', users.getStat);
 
+app.post('/product/refill', product.refillProduct)
+app.post('/products', product.getAllProductsByIdEntreprise)
+
+app.get('/entreprise', entreprise.getEntreprise)
+app.get('/all-entreprise', entreprise.getAllEntreprise)
+app.post('/entreprise', entreprise.createEntreprise)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

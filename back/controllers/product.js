@@ -18,5 +18,20 @@ exports.createProduct = async (req, res) => {
 exports.getProduct = async (req, res) => {
     const id = req.query.id
     const product = await models.Product.findOne({ id })
-    res.send(product)
+    const quantityPerPush = 0.01 // FIXME quantité de savon par push
+    res.send({...product, lastQuantity: product.capacity - quantityPerPush * product.utilisation })
+}
+
+exports.refillProduct = async (req, res) => {
+    const id = req.body.id
+    await models.Product.update({
+        utilisation: 0
+    })
+
+    res.sendStatus(200)
+}
+
+exports.getAllProductsByIdEntreprise = async (res, req) => {
+    const products = await models.Product.findAll({ where: { idEntreprise: req.body.idEntreprise }})
+    res.send(products)
 }
