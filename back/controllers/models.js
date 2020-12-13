@@ -110,7 +110,7 @@ const Product = sequelize.define('product', {
     timestamps: false
 });
 
-const User = sequelize.define('users', {
+const Users = sequelize.define('users', {
     person: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -172,6 +172,6 @@ exports.People = People;
 exports.StatCount = StatCount;
 exports.Entreprise = Entreprise;
 exports.Product = Product;
-exports.User = User;
+exports.Users = Users;
 
 exports.connect = connect;

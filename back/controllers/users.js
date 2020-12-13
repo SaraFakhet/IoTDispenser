@@ -24,7 +24,7 @@ exports.createUser = async (req, res) => {
         lastDelay: 42,
     })
 
-    await models.User.create({
+    await models.Users.create({
         person: person.id,
         //idEntreprise: req.body.idEntreprise,
         countHandwashingDay: 0,
