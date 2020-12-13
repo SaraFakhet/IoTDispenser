@@ -42,7 +42,7 @@ exports.connect = async (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
 
-    const user = await models.Users.findOne({
+    /*const user = await models.Users.findOne({
         where: {
             password,
             include: [{
@@ -52,7 +52,9 @@ exports.connect = async (req, res) => {
                 },
             }]
         }
-    })
+    })*/
+    const people = await models.People.FindOne({ where: {email}})
+    const user = await models.Users.findOne({where: {password, people: people.id}})
 
     //const user = {"username":"zizou"};
 
