@@ -27,7 +27,20 @@ const postUserAuth = async (email: string, password: string) => {
             let json = await response.json();
             let peopleJson = await getPeople(json.people);
             let statsJson = await getStats(json.id);
-            Actions.replace('homeUL', {
+
+            let home: string = '';
+            switch (json.role) {
+              case "employee":
+                home = 'homeUL';
+                break;
+              case "responsable":
+                home = 'homeRL';
+                break;
+              case "surface_technician":
+                home = 'homeTS';
+                break;
+            }
+            Actions.replace(home, {
               id: json.id,
               people: json.people,
               idEntreprise: json.idEntreprise,
@@ -112,8 +125,9 @@ const postIncrementHandwashing = async (userId: number) => { //FIXME
         });
         if (response.ok) {
           let statsJson = await getStats(userId);
-          Actions.replace('homeUL', {countHandwashingDay: 0, countHandwashingMonth: 0});
           console.log("Handwashing incremented")
+          let result = {countHandwashingDay: statsJson.countHandwashingDay, countHandwashingMonth: statsJson.countHandwashingMonth}
+          return result;
         }
     } catch (error) {
         console.error(error);
@@ -125,7 +139,6 @@ const getStats = async (userId: number) => {
       let response = await fetch(`${baseUrl.API_URL}/statistics-user/` + userId);
       let json = await response.json();
       console.log("stats : countHandwashingDay : " + JSON.stringify(json.countHandwashingDay) + " countHandwashingMonth : " + JSON.stringify(json.countHandwashingDay));
-      //Actions.refresh({countHandwashingDay:json.countHandwashingDay, countHandwashingMonth: json.countHandwashingMonth});
       return json;
     } catch (error) {
       console.error(error);

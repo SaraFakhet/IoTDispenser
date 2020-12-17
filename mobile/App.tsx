@@ -116,6 +116,7 @@ class App extends React.Component {
             ></Scene>
             <Scene
               key="infoUL"
+              wrap={false}
               component={Prevention}
               hideNavBar
               icon={TabIcon}

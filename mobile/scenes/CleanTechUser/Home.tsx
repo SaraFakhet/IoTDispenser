@@ -10,6 +10,42 @@ import {
 } from "react-native";
 import { Text } from "native-base";
 
+interface IProps {
+  id: number,
+  people: number,
+  idEntreprise: number,
+  countDay: number, //id
+  countMonth: number, //id
+  lastHandwashing: Date,
+  delayHandwashing: Date,
+  role: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  age: string,
+  countHandwashingDay: number,
+  countHandwashingMonth: number
+}
+
+interface IState {
+  id: number,
+  people: number,
+  idEntreprise: number,
+  countDay: number,
+  countMonth: number,
+  lastHandwashing: Date,
+  delayHandwashing: Date,
+  role: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  age: string,
+  countHandwashingDay: number,
+  countHandwashingMonth: number
+}
+
 const Space = () => {
   return <View style={{ height: 20 }} />;
 };

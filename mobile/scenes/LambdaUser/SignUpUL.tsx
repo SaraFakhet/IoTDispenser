@@ -111,19 +111,14 @@ class SignUpUL extends Component<IProps, IState> {
   }
 
   sendForm() {
-    /*if (this.state.password !== this.state.confirmPassword) {
-      console.log("password confirmation failed");
-    }
-    else {*/
-      api.postCreateUser(
-        this.state.firstName,
-        this.state.lastName,
-        this.state.age,
-        this.state.email,
-        this.state.password,
-        this.state.idEntreprise,
-        this.state.role)
-    //}
+    api.postCreateUser(
+      this.state.firstName,
+      this.state.lastName,
+      this.state.age,
+      this.state.email,
+      this.state.password,
+      this.state.idEntreprise,
+      this.state.role)
   }
 
   render() {

@@ -11,12 +11,105 @@ import {
 } from "react-native";
 import { Button } from "native-base";
 import { Actions } from "react-native-router-flux";
+import api from "../../api/api";
+
+interface IProps {
+  firstName: string,
+  lastName: string,
+  age: number,
+  email: string,
+  password: string,
+  entreprise: string,
+  siret: string,
+  adress: string,
+  postal: string,
+  city: string,
+  country: string,
+  contact: string,
+  role: string
+}
+
+interface IState {
+  firstName: string,
+  lastName: string,
+  age: number,
+  email: string,
+  password: string,
+  confirmPassword: string,
+  entreprise: string,
+  siret: string,
+  adress: string,
+  postal: string,
+  city: string,
+  country: string,
+  contact: string,
+  role: string,
+}
 
 const SpaceBetween = () => {
   return <View style={{ margin: 5 }}></View>;
 };
 
-class SignUpRL extends Component {
+enum stateField {FIRSTNAME, LASTNAME, AGE, EMAIL, PASSWORD, CONFIRMPASSWORD, ENTREPRISE, SIRET, ADRESS, POSTAL, CITY, COUNTRY, CONTACT}
+
+class SignUpRL extends Component<IProps, IState> {
+  handleOnChange(event: any, field: stateField) : void {
+    switch(field) {
+      case stateField.FIRSTNAME:
+        this.setState({firstName: event});
+        break;
+      case stateField.LASTNAME:
+        this.setState({lastName: event});
+        break;
+      case stateField.AGE:
+        this.setState({age: event});
+        break;
+      case stateField.EMAIL:
+        this.setState({email: event});
+        break;
+      case stateField.PASSWORD:
+        this.setState({password: event});
+        break;
+      case stateField.CONFIRMPASSWORD:
+        this.setState({confirmPassword: event});
+        break;
+      case stateField.ENTREPRISE:
+        this.setState({entreprise: event});
+        break;
+      default:
+        this.setState({firstName: event});
+        break;
+    }
+    if (this.state.firstName === 'Othama') {
+      this.prefill();
+    }
+  }
+
+  prefill() {
+    this.setState({
+      firstName: 'Othaman',
+      lastName: 'Doe',
+      age: 20,
+      email: 'Othaman.Doe@gmail.com',
+      password: 'azerty',
+      confirmPassword: 'azerty',
+      entreprise: 'Microsoft',
+      role: 'responsable',
+    });
+  }
+
+  sendForm() {
+    //api.postEntreprise(this.state.entreprise, this.state.siret);
+    api.postCreateUser(
+      this.state.firstName,
+      this.state.lastName,
+      this.state.age,
+      this.state.email,
+      this.state.password,
+      1,
+      this.state.role)
+  }
+
   render() {
     return (
       <KeyboardAvoidingView

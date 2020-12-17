@@ -15,6 +15,7 @@ import {
   VictoryTheme,
 } from "victory-native";
 import api from "../../api/api";
+import { Actions } from "react-native-router-flux";
 
 interface IProps {
   id: number,
@@ -80,6 +81,13 @@ class LambdaHome extends Component<IProps, IState> {
     };
   }
 
+  handleHandWashing = async () => {
+    let newStats = await api.postIncrementHandwashing(this.state.id);
+    if (newStats) {
+      this.setState({countHandwashingDay:newStats.countHandwashingDay, countHandwashingMonth: newStats.countHandwashingMonth})
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -130,7 +138,7 @@ class LambdaHome extends Component<IProps, IState> {
             </Text>
             <Button
               title="Mes mains sont clean 🧼"
-              onPress={() => api.postIncrementHandwashing(this.state.id)}
+              onPress={() => this.handleHandWashing()}
               buttonStyle={styles.button}
               titleStyle={styles.textButton}
             ></Button>

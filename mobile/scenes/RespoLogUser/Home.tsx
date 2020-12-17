@@ -10,13 +10,71 @@ import Carousel from 'react-native-snap-carousel';
 import { Text } from "native-base";
 import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
 
+interface IProps {
+  id: number,
+  people: number,
+  idEntreprise: number,
+  countDay: number, //id
+  countMonth: number, //id
+  lastHandwashing: Date,
+  delayHandwashing: Date,
+  role: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  age: string,
+  countHandwashingDay: number,
+  countHandwashingMonth: number
+}
+
+interface IState {
+  id: number,
+  people: number,
+  idEntreprise: number,
+  countDay: number,
+  countMonth: number,
+  lastHandwashing: Date,
+  delayHandwashing: Date,
+  role: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  age: string,
+  countHandwashingDay: number,
+  countHandwashingMonth: number
+}
+
 class Space extends Component {
   render() {
     return <View style={{ height: 20 }}></View>;
   }
 }
 
-class HomeRL extends Component {
+class HomeRL extends Component<IProps, IState> {
+
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      id: props.id,
+      people: props.people,
+      idEntreprise: props.idEntreprise,
+      countDay: props.countDay,
+      countMonth: props.countMonth,
+      lastHandwashing: props.lastHandwashing,
+      delayHandwashing: props.delayHandwashing,
+      countHandwashingDay: props.countHandwashingDay,
+      countHandwashingMonth: props.countHandwashingMonth,
+      role: props.role,
+      password: props.password,
+      firstName: props.firstName,
+      lastName: props.lastName,
+      email: props.email,
+      age: props.age
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
