@@ -11,9 +11,9 @@ exports.getAllEntreprise = async (req, res) => {
 }
 
 exports.createEntreprise = async (req, res) => {
-    await models.Entreprise.create({
+    const entreprise = await models.Entreprise.create({
         name: req.body.name,
         siret: req.body.siret,
     })
-    res.sendStatus(200);
+    res.sendStatus(entreprise);
 }
