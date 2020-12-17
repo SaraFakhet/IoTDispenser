@@ -26,8 +26,7 @@ exports.refillProduct = async (req, res) => {
     const id = req.body.id
     await models.Product.update({
         utilisation: 0,
-        where: { id }
-    })
+    }, { where: {id} })
 
     res.sendStatus(200)
 }
