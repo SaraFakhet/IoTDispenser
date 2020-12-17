@@ -77,6 +77,11 @@ exports.handWashing = async (req, res) => {
     const user = await models.Users.findOne({where: {id: req.body.id}})
     await models.StatCount.increment('countHandwashing', { where: { id: user.countDay }})
     await models.StatCount.increment('countHandwashing', { where: { id: user.countMonth }})
+    const d = new Date();
+    const n = d.getTime();
+    await models.Users.update({
+        lastHandwashing: n,
+    }, {where: {id}})
     res.sendStatus(200)
 }
 
