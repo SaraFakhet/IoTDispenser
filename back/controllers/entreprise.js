@@ -1,12 +1,12 @@
 const models = require('./models')
 
 exports.getEntreprise = async (req, res) => {
-    const entreprise = models.Entreprise.findOne({ where: {id: req.params.idEntreprise }})
+    const entreprise = await models.Entreprise.findOne({ where: {id: req.params.idEntreprise }})
     res.send(entreprise)
 }
 
 exports.getAllEntreprise = async (req, res) => {
-    const entreprises = models.Entreprise.findAll()
+    const entreprises = await models.Entreprise.findAll()
     res.send(entreprises)
 }
 
