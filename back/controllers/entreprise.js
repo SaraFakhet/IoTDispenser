@@ -15,5 +15,5 @@ exports.createEntreprise = async (req, res) => {
         name: req.body.name,
         siret: req.body.siret,
     })
-    res.sendStatus(entreprise);
+    res.send(entreprise);
 }
