@@ -10,7 +10,7 @@ exports.getAllEntreprise = async (req, res) => {
     res.send(entreprises)
 }
 
-exports.createEntreprise = async (res, req) => {
+exports.createEntreprise = async (req, res) => {
     await models.Entreprise.create({
         name: req.body.name,
         siret: req.body.siret,
