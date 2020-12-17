@@ -10,6 +10,7 @@ import {
   StatusBar,
 } from "react-native";
 import { Button } from "native-base";
+import { Actions } from "react-native-router-flux";
 
 const SpaceBetween = () => {
   return <View style={{ margin: 5 }}></View>;
@@ -100,7 +101,7 @@ class SignUpRL extends Component {
             </View>
           </View>
           <View style={{ marginTop: 100, marginBottom: 50 }}>
-            <Button onPress={() => null} style={styles.btn}>
+            <Button onPress={() => Actions.jump('homeRL')} style={styles.btn}>
               <Text style={{ color: "white" }}>Terminer</Text>
             </Button>
           </View>
