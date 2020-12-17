@@ -32,6 +32,6 @@ exports.refillProduct = async (req, res) => {
 }
 
 exports.getAllProductsByIdEntreprise = async (res, req) => {
-    const products = await models.Product.findAll({ where: { idEntreprise: req.body.idEntreprise }})
+    const products = await models.Product.findAll({ where: { idEntreprise: req.params.idEntreprise }})
     res.send(products)
 }
