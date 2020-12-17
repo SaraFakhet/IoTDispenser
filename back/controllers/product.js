@@ -19,7 +19,7 @@ exports.getProduct = async (req, res) => {
     const id = req.params.id
     const product = await models.Product.findOne({where: { id }})
     const quantityPerPush = 0.001
-    res.send({...product, lastQuantity: product.capacity - quantityPerPush * product.utilisation })
+    res.send({product, lastQuantity: product.capacity - quantityPerPush * product.utilisation })
 }
 
 exports.refillProduct = async (req, res) => {
@@ -31,7 +31,7 @@ exports.refillProduct = async (req, res) => {
     res.sendStatus(200)
 }
 
-exports.getAllProductsByIdEntreprise = async (res, req) => {
-    const products = await models.Product.findAll({ where: { idEntreprise: req.body.idEntreprise }})
+exports.getAllProductsByIdEntreprise = async (req, res) => {
+    const products = await models.Product.findAll({ where: { idEntreprise: req.params.idEntreprise }})
     res.send(products)
 }
