@@ -6,10 +6,7 @@ import {
   Image,
   Platform,
   Switch,
-  ScrollView,
-  Alert,
 } from "react-native";
-import { Button } from "react-native-elements";
 import { Text } from "native-base";
 
 const Profil = () => {

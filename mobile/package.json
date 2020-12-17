@@ -29,6 +29,7 @@
     "react-native-router-flux": "^4.2.0",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-svg": "^12.1.0",
     "react-native-web": "~0.13.12",
     "react-native-webview": "^11.0.2",
@@ -40,6 +41,7 @@
     "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
     "@types/react-native": "~0.63.2",
+    "@types/react-native-snap-carousel": "^3.8.2",
     "typescript": "~3.9.5"
   },
   "private": true

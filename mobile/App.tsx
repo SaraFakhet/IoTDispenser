@@ -1,6 +1,6 @@
 import React from "react";
 import * as Font from "expo-font";
-import { Router, Scene } from "react-native-router-flux";
+import { Actions, Router, Scene, Tabs } from "react-native-router-flux";
 
 import LaunchingScreen from "./scenes/LaunchingScreen";
 import AuthScene from "./scenes/AuthScene";
@@ -11,6 +11,9 @@ import SignUpUL from "./scenes/LambdaUser/SignUpUL";
 import LambdaHome from "./scenes/LambdaUser/Home";
 import Prevention from "./scenes/LambdaUser/Prevention";
 import Profil from "./scenes/LambdaUser/Profil";
+import HomeTS from "./scenes/CleanTechUser/Home";
+import HomeRL from "./scenes/RespoLogUser/Home";
+import CleanTeam from './scenes/RespoLogUser/CleanTeam';
 import { View, Text, StyleSheet, Image } from "react-native";
 
 const TabIcon = (props: any) => {
@@ -27,6 +30,12 @@ const TabIcon = (props: any) => {
     case "Profil":
       settingImage = require("./assets/user.png");
       break;
+    case "Déconnexion":
+      settingImage = require("./assets/logoutTab.png");
+      break;
+    case "Équipe Nettoyage":
+      settingImage = require("./assets/medical-report.png");
+      break
     default:
       break;
   }
@@ -95,7 +104,7 @@ class App extends React.Component {
             component={SignUpTS}
             title="Inscription"
           ></Scene>
-          <Scene key="roothome" hideNavBar tabs showLabel={false}>
+          <Tabs key="roothome" hideNavBar tabs showLabel={false}>
             <Scene
               key="homeUL"
               wrap={false}
@@ -119,7 +128,56 @@ class App extends React.Component {
               icon={TabIcon}
               title="Profil"
             ></Scene>
-          </Scene>
+          </Tabs>
+          <Tabs key="rootTS" hideNavBar showLabel={false}>
+            <Scene
+              key="homeTS"
+              wrap={false}
+              component={HomeTS}
+              hideNavBar
+              icon={TabIcon}
+              title="Accueil"
+              initial
+            ></Scene>
+            <Scene
+              key="deco"
+              wrap={false}
+              hideNavBar
+              icon={TabIcon}
+              component={HomeTS}
+              tabBarOnPress={() => Actions.push("auth")}
+              title="Déconnexion"
+            ></Scene>
+          </Tabs>
+          <Tabs key="rootRL" hideNavBar showLabel={false}>
+            <Scene
+              key="homeRL"
+              wrap={false}
+              component={HomeRL}
+              hideNavBar
+              icon={TabIcon}
+              title="Accueil"
+              initial
+            ></Scene>
+            <Scene
+              key="cleanTeam"
+              wrap={false}
+              component={CleanTeam}
+              hideNavBar
+              icon={TabIcon}
+              title="Équipe Nettoyage"
+              initial
+            ></Scene>
+            <Scene
+              key="deco"
+              wrap={false}
+              hideNavBar
+              icon={TabIcon}
+              component={HomeRL}
+              tabBarOnPress={() => Actions.push("auth")}
+              title="Déconnexion"
+            ></Scene>
+          </Tabs>
         </Scene>
       </Router>
     );
