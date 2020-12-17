@@ -1,7 +1,7 @@
 const models = require('./models')
 
 exports.getEntreprise = async (req, res) => {
-    const entreprise = models.Entreprise.findOne({ where: {id: req.query.idEntreprise }})
+    const entreprise = models.Entreprise.findOne({ where: {id: req.params.idEntreprise }})
     res.send(entreprise)
 }
 
