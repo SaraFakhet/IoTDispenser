@@ -144,14 +144,15 @@ class SignUpRL extends Component<IProps, IState> {
   }
 
   async sendForm() {
-    //let idEntreprise = await api.postEntreprise(this.state.entreprise, this.state.siret);
+    let entreprise = await api.postEntreprise(this.state.entreprise, this.state.siret);
+    let idEntreprise = entreprise.id;
     api.postCreateUser(
       this.state.firstName,
       this.state.lastName,
       this.state.age,
       this.state.email,
       this.state.password,
-      1,
+      idEntreprise,
       this.state.role)
   }
 

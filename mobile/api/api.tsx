@@ -92,7 +92,6 @@ const postCreateUser = async (
         });
         if (response.ok) {
             await postUserAuth(email, password);
-
         }
     } catch (error) {
         console.error(error);
@@ -180,7 +179,6 @@ const getEntreprise = async (idEntreprise: number) => {
     try {
       let response = await fetch(`${baseUrl.API_URL}/entreprise/` + idEntreprise);
       let json = await response.json();
-
       //console.log("entreprise : " + JSON.stringify(json));
       Actions.refresh({entreprise:json.entreprise});
     } catch (error) {
@@ -212,7 +210,7 @@ const postEntreprise = async (name: string, siret: string) => {
                 siret: siret}),
         });
         if (response.ok) {
-          return response;
+          return response.json();
         }
     } catch (error) {
         console.error(error);
