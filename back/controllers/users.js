@@ -81,7 +81,7 @@ exports.handWashing = async (req, res) => {
     const n = d.getTime();
     await models.Users.update({
         lastHandwashing: n,
-    }, {where: {id}})
+    }, {where: { id: req.body.id}})
     res.sendStatus(200)
 }
 
