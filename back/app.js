@@ -36,7 +36,7 @@ app.get('/product/:id', product.getProduct);
 app.post('/create-user', users.createUser);
 app.post('/connect', users.connect);
 
-app.get('/people', people.getPeople);
+app.get('/people/:id', people.getPeople);
 app.post('/hand-washing', users.handWashing);
 app.get('/statistics-user/:id', users.getStat);
 
