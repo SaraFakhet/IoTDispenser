@@ -91,10 +91,8 @@ const postCreateUser = async (
                 role: role}),
         });
         if (response.ok) {
-            let json = await response.json();
-            console.log(JSON.stringify(json));
-            Actions.replace('homeUL', {firstName:json.firstName});
-            return json;
+            await postUserAuth(email, password);
+
         }
     } catch (error) {
         console.error(error);
@@ -213,6 +211,9 @@ const postEntreprise = async (name: string, siret: string) => {
                 name: name,
                 siret: siret}),
         });
+        if (response.ok) {
+          return response;
+        }
     } catch (error) {
         console.error(error);
     }

@@ -55,7 +55,7 @@ class SignUpUL extends Component<IProps, IState> {
     super(props);
     this.state = {
       firstName: '',
-      lastName: 'Doe',
+      lastName: '',
       age: 20,
       email: '',
       password: '',
@@ -140,20 +140,20 @@ class SignUpUL extends Component<IProps, IState> {
           </View>
           <View style={styles.inputBox}>
             <View>
-              <Text style={{ fontSize: 11 }}>Nom</Text>
+              <Text style={{ fontSize: 11 }}>Prénom</Text>
               <TextInput
                 style={styles.input}
                 value={this.state.firstName}
-                onChangeText={e => this.handleOnChange(e, stateField.LASTNAME)}
+                onChangeText={e => this.handleOnChange(e, stateField.FIRSTNAME)}
               />
             </View>
             <SpaceBetween />
             <View>
-              <Text style={{ fontSize: 11 }}>Prénom</Text>
+              <Text style={{ fontSize: 11 }}>Nom</Text>
               <TextInput
                 style={styles.input}
-                value={this.state.email}
-                onChangeText={e => this.handleOnChange(e, stateField.FIRSTNAME)}
+                value={this.state.lastName}
+                onChangeText={e => this.handleOnChange(e, stateField.LASTNAME)}
               />
             </View>
             <SpaceBetween />
