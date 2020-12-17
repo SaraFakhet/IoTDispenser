@@ -16,22 +16,22 @@ exports.createProduct = async (req, res) => {
 }
 
 exports.getProduct = async (req, res) => {
-    const id = req.query.id
-    const product = await models.Product.findOne({ id })
-    const quantityPerPush = 0.01 // FIXME quantité de savon par push
-    res.send({...product, lastQuantity: product.capacity - quantityPerPush * product.utilisation })
+    const id = req.params.id
+    const product = await models.Product.findOne({where: { id }})
+    const quantityPerPush = 0.001
+    res.send({product, lastQuantity: product.capacity - quantityPerPush * product.utilisation })
 }
 
 exports.refillProduct = async (req, res) => {
     const id = req.body.id
     await models.Product.update({
-        utilisation: 0
-    })
+        utilisation: 0,
+    }, { where: {id} })
 
     res.sendStatus(200)
 }
 
-exports.getAllProductsByIdEntreprise = async (res, req) => {
-    const products = await models.Product.findAll({ where: { idEntreprise: req.body.idEntreprise }})
+exports.getAllProductsByIdEntreprise = async (req, res) => {
+    const products = await models.Product.findAll({ where: { idEntreprise: req.params.idEntreprise }})
     res.send(products)
 }

@@ -36,14 +36,14 @@ app.get('/product/:id', product.getProduct);
 app.post('/create-user', users.createUser);
 app.post('/connect', users.connect);
 
-app.get('/people', people.getPeople);
+app.get('/people/:id', people.getPeople);
 app.post('/hand-washing', users.handWashing);
-app.get('/statistics-user', users.getStat);
+app.get('/statistics-user/:id', users.getStat);
 
 app.post('/product/refill', product.refillProduct)
-app.post('/products', product.getAllProductsByIdEntreprise)
+app.get('/products/:idEntreprise', product.getAllProductsByIdEntreprise)
 
-app.get('/entreprise', entreprise.getEntreprise)
+app.get('/entreprise/:idEntreprise', entreprise.getEntreprise)
 app.get('/all-entreprise', entreprise.getAllEntreprise)
 app.post('/entreprise', entreprise.createEntreprise)
 
