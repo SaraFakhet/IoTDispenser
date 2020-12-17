@@ -81,9 +81,6 @@ exports.handWashing = async (req, res) => {
 }
 
 exports.getStat = async (req, res) => {
-    console.log("query " + req.query)
-    console.log("body " + req.body)
-    console.log("query id " + req.query.id)
     const user = models.Users.findOne({where: {id: req.query.id}})
     const statCountDay = models.StatCount({ where: { id: user.countDay}})
     const statCountMonth = models.StatCount({ where: { id: user.countMonth}})

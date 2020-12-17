@@ -43,7 +43,7 @@ app.get('/statistics-user/:id', users.getStat);
 app.post('/product/refill', product.refillProduct)
 app.post('/products', product.getAllProductsByIdEntreprise)
 
-app.get('/entreprise', entreprise.getEntreprise)
+app.get('/entreprise/:idEntreprise', entreprise.getEntreprise)
 app.get('/all-entreprise', entreprise.getAllEntreprise)
 app.post('/entreprise', entreprise.createEntreprise)
 
