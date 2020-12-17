@@ -82,7 +82,7 @@ exports.handWashing = async (req, res) => {
 
 exports.getStat = async (req, res) => {
     const user = models.Users.findOne({where: {id: req.query.id}})
-    const statCountDay = models.StatCount({ where: { id: user.countDay}})
-    const statCountMonth = models.StatCount({ where: { id: user.countMonth}})
+    const statCountDay = models.StatCount.findOne({ where: { id: user.countDay}})
+    const statCountMonth = models.StatCount.findOne({ where: { id: user.countMonth}})
     res.send({ countHandwashingDay: statCountDay.countHandwashing, countHandwashingMonth: statCountMonth.countHandwashing})
 }
