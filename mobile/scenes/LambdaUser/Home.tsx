@@ -14,13 +14,42 @@ import {
   VictoryChart,
   VictoryTheme,
 } from "victory-native";
+import api from "../../api/api";
 
 interface IProps {
-  user: string;
+  id: number,
+  people: number,
+  idEntreprise: number,
+  countDay: number, //id
+  countMonth: number, //id
+  lastHandwashing: Date,
+  delayHandwashing: Date,
+  role: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  age: string,
+  countHandwashingDay: number,
+  countHandwashingMonth: number
 }
 
 interface IState {
-  user: string;
+  id: number,
+  people: number,
+  idEntreprise: number,
+  countDay: number,
+  countMonth: number,
+  lastHandwashing: Date,
+  delayHandwashing: Date,
+  role: string,
+  password: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  age: string,
+  countHandwashingDay: number,
+  countHandwashingMonth: number
 }
 
 class Space extends Component {
@@ -33,7 +62,21 @@ class LambdaHome extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      user: props.user,
+      id: props.id,
+      people: props.people,
+      idEntreprise: props.idEntreprise,
+      countDay: props.countDay,
+      countMonth: props.countMonth,
+      lastHandwashing: props.lastHandwashing,
+      delayHandwashing: props.delayHandwashing,
+      countHandwashingDay: props.countHandwashingDay,
+      countHandwashingMonth: props.countHandwashingMonth,
+      role: props.role,
+      password: props.password,
+      firstName: props.firstName,
+      lastName: props.lastName,
+      email: props.email,
+      age: props.age
     };
   }
 
@@ -52,7 +95,7 @@ class LambdaHome extends Component<IProps, IState> {
         </View>
         <ScrollView style={styles.scrollView}>
           <View style={styles.box}>
-          <Text style={[styles.text, {fontWeight: 'bold'}]}>Hello {this.state.user}! 🙋</Text>
+          <Text style={[styles.text, {fontWeight: 'bold'}]}>Hello {this.state.firstName}! 🙋</Text>
           <View style={{ height: 15 }}/>
             <Text style={styles.text}>
               Pour alimenter nos data set et ainsi offrir une{" "}
@@ -87,7 +130,7 @@ class LambdaHome extends Component<IProps, IState> {
             </Text>
             <Button
               title="Mes mains sont clean 🧼"
-              onPress={() => Alert.alert("Bsahtek")}
+              onPress={() => api.postIncrementHandwashing(this.state.id)}
               buttonStyle={styles.button}
               titleStyle={styles.textButton}
             ></Button>
@@ -105,7 +148,7 @@ class LambdaHome extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                X
+              { this.state.countHandwashingDay }
               </Text>{" "}
               fois
             </Text>
