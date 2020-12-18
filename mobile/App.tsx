@@ -15,6 +15,9 @@ import HomeTS from "./scenes/CleanTechUser/Home";
 import HomeRL from "./scenes/RespoLogUser/Home";
 import CleanTeam from './scenes/RespoLogUser/CleanTeam';
 import { View, Text, StyleSheet, Image } from "react-native";
+import { LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs();
 
 const TabIcon = (props: any) => {
   let textColor = props.focused ? "#000" : "darkgrey";
