@@ -9,48 +9,37 @@ import {
   TouchableHighlight,
 } from "react-native";
 import { Text } from "native-base";
+import api from "../../api/api";
 
 interface IProps {
-  id: number,
-  people: number,
-  idEntreprise: number,
-  countDay: number, //id
-  countMonth: number, //id
-  lastHandwashing: Date,
-  delayHandwashing: Date,
-  role: string,
-  password: string,
-  firstName: string,
-  lastName: string,
-  email: string,
-  age: string,
-  countHandwashingDay: number,
-  countHandwashingMonth: number
+  lastQuantity: number;
 }
 
 interface IState {
-  id: number,
-  people: number,
-  idEntreprise: number,
-  countDay: number,
-  countMonth: number,
-  lastHandwashing: Date,
-  delayHandwashing: Date,
-  role: string,
-  password: string,
-  firstName: string,
-  lastName: string,
-  email: string,
-  age: string,
-  countHandwashingDay: number,
-  countHandwashingMonth: number
+  lastQuantity: number;
 }
 
-const Space = () => {
-  return <View style={{ height: 20 }} />;
+class Space extends Component {
+  render() {
+    return <View style={{ height: 20 }} />;
+  }
 };
 
-const HomeTS = () => {
+class HomeTS extends Component<IProps, IState> {
+
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      lastQuantity: props.lastQuantity * 1000
+    }
+  }
+
+  refill() {
+    api.postProductRefill()
+    Alert.alert("Merci !")
+  }
+
+  render () {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -71,15 +60,14 @@ const HomeTS = () => {
             <Text style={{fontWeight: "700", color: "#353535"}}>
               vide
             </Text>{" "}
-            🥵
           </Text>
           <TouchableHighlight
             style={styles.button}
-            onPress={() => Alert.alert("Bsahtek")}
+            onPress={() => this.refill() }
           >
             <View>
               <Text style={styles.textButton}>
-                Le distributeur a été rempli 🥳
+                Le distributeur a été rempli
               </Text>
             </View>
           </TouchableHighlight>
@@ -104,7 +92,7 @@ const HomeTS = () => {
                   fontFamily: "Helvetica Neue",
                   color: "#373737",
                 }}>
-                    X</Text> ml
+                    {this.state.lastQuantity}</Text> ml
                 </Text>
             </View>
             <View style={{marginVertical: 15, height: 75, left: 20, bottom: 5}}>
@@ -119,7 +107,8 @@ const HomeTS = () => {
       </View>
       <View style={styles.bottom} />
     </View>
-  );
+    );
+  }
 };
 
 const styles = StyleSheet.create({
