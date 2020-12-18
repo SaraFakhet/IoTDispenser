@@ -11,39 +11,11 @@ import { Text } from "native-base";
 import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
 
 interface IProps {
-  id: number,
-  people: number,
-  idEntreprise: number,
-  countDay: number, //id
-  countMonth: number, //id
-  lastHandwashing: Date,
-  delayHandwashing: Date,
-  role: string,
-  password: string,
-  firstName: string,
-  lastName: string,
-  email: string,
-  age: string,
-  countHandwashingDay: number,
-  countHandwashingMonth: number
+  entreprise: string
 }
 
 interface IState {
-  id: number,
-  people: number,
-  idEntreprise: number,
-  countDay: number,
-  countMonth: number,
-  lastHandwashing: Date,
-  delayHandwashing: Date,
-  role: string,
-  password: string,
-  firstName: string,
-  lastName: string,
-  email: string,
-  age: string,
-  countHandwashingDay: number,
-  countHandwashingMonth: number
+  entreprise: string
 }
 
 class Space extends Component {
@@ -57,21 +29,7 @@ class HomeRL extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      id: props.id,
-      people: props.people,
-      idEntreprise: props.idEntreprise,
-      countDay: props.countDay,
-      countMonth: props.countMonth,
-      lastHandwashing: props.lastHandwashing,
-      delayHandwashing: props.delayHandwashing,
-      countHandwashingDay: props.countHandwashingDay,
-      countHandwashingMonth: props.countHandwashingMonth,
-      role: props.role,
-      password: props.password,
-      firstName: props.firstName,
-      lastName: props.lastName,
-      email: props.email,
-      age: props.age
+      entreprise: props.entreprise
     };
   }
 
@@ -102,7 +60,7 @@ class HomeRL extends Component<IProps, IState> {
               >
                 DISPENSER
               </Text>{" "}
-              de <Text style={{fontWeight: "700", color: "#353535", fontSize: 13}} > NetLink Entreprise 📊</Text>
+              de <Text style={{fontWeight: "700", color: "#353535", fontSize: 13}} > { this.state.entreprise } 📊</Text>
             </Text>
           </View>
           <Space />
@@ -126,9 +84,9 @@ class HomeRL extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                X
+                14
               </Text>{" "}
-              min
+              jours
             </Text>
           </View>
           <Space />
@@ -174,9 +132,9 @@ class HomeRL extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                X
+                0,6
               </Text>{" "}
-              min
+              L
             </Text>
           </View>
           <Space/>

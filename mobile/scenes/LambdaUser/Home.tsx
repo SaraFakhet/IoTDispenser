@@ -50,7 +50,7 @@ interface IState {
   email: string,
   age: string,
   countHandwashingDay: number,
-  countHandwashingMonth: number
+  countHandwashingMonth: number,
 }
 
 class Space extends Component {
@@ -194,7 +194,7 @@ class LambdaHome extends Component<IProps, IState> {
           <Space />
           <View style={styles.box}>
             <Text style={[styles.textStat, styles.textStatBtm]}>
-              De combien ai-je diminué mon pourcentage d'infection ?
+            Moyenne de lavage des mains par jour
             </Text>
             <Text style={styles.textStatMetric}>
               <Text
@@ -204,9 +204,9 @@ class LambdaHome extends Component<IProps, IState> {
                   color: "#575757",
                 }}
               >
-                X
+                { (this.state.countHandwashingDay / 24).toFixed(2) }
               </Text>{" "}
-              %
+              fois
             </Text>
           </View>
           <Space/>

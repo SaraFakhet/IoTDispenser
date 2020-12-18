@@ -17,27 +17,27 @@ import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
 const DATA = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "John Doe",
+    title: "Chloe",
   },
   {
     id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "John Doe",
+    title: "Joey",
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "John Doe",
+    title: "Tristan",
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d73",
-    title: "John Doe",
+    title: "Sam",
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d74",
-    title: "John Doe",
+    title: "Juliette",
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d75",
-    title: "John Doe",
+    title: "David",
   },
 ];
 
@@ -58,7 +58,7 @@ const CleanTeam = () => {
             </Text>
             <TouchableHighlight
               style={styles.button}
-              onPress={() => Alert.alert("Miskine")}
+              onPress={() => Alert.alert("Le compte va être désactivé")}
             >
               <View>
                 <Text style={styles.textButton}>Désactiver le compte</Text>

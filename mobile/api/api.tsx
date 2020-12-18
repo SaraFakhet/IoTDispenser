@@ -45,6 +45,11 @@ const postUserAuth = async (email: string, password: string) => {
               Actions.replace(home, {
                 lastQuantity: productJson.lastQuantity
               })
+            } else if (json.role === "responsable") {
+              let entrepriseJson = await getEntreprise(json.idEntreprise);
+              Actions.replace(home, {
+                entreprise: entrepriseJson.name
+              })
             } else {
               Actions.replace(home, {
                 id: json.id,
@@ -186,7 +191,8 @@ const postProducts = async (idEntreprise: number, idArduino: number) => { //FIXM
 const getProducts = async () => {
   try {
       let response = await fetch(`${baseUrl.API_URL}/product/1`);
-      return response.json();
+      let json = await response.json();
+      return json;
   } catch (error) {
       console.error(error);
   }
@@ -196,8 +202,9 @@ const getEntreprise = async (idEntreprise: number) => {
     try {
       let response = await fetch(`${baseUrl.API_URL}/entreprise/` + idEntreprise);
       let json = await response.json();
+      return json;
       //console.log("entreprise : " + JSON.stringify(json));
-      Actions.refresh({entreprise:json.entreprise});
+      //Actions.refresh({entreprise:json.entreprise});
     } catch (error) {
       console.error(error);
     }
